@@ -49,7 +49,7 @@ public class WhatsappRepository {
             adminMap.put(group, users.get(0));
         }else{
             customGroupCount++;
-            String name = "Group + " + customGroupCount;
+            String name = "Group " + customGroupCount;
             group = new Group(name, users.size());
             adminMap.put(group, users.get(0));
         }
@@ -80,7 +80,7 @@ public class WhatsappRepository {
         if(!groupUserMap.containsKey(group)){
             throw new RuntimeException("Group does not exist");
         }
-        if(adminMap.get(group).equals(approver)){
+        if(!adminMap.get(group).equals(approver)){
             throw new RuntimeException("Approver does not have rights");
         }
         if(!groupUserMap.get(group).contains(user)){
