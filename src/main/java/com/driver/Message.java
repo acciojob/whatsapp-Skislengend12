@@ -1,19 +1,28 @@
 package com.driver;
 
-import java.time.LocalDate;
 import java.util.Date;
 
 public class Message {
     private int id;
     private String content;
-    private LocalDate timestamp;
+    private Date timestamp;
+
+    public Message(int id) {
+        this.id = id;
+        this.timestamp = new Date();
+    }
+
+    public Message(int id, String content) {
+        this.id = id;
+        this.content = content;
+        this.timestamp = new Date();
+    }
 
     public Message(int id, String content, Date timestamp) {
         this.id = id;
         this.content = content;
-        this.timestamp = LocalDate.now();
+        this.timestamp = timestamp;
     }
-
     public int getId() {
         return id;
     }
@@ -30,11 +39,11 @@ public class Message {
         this.content = content;
     }
 
-    public LocalDate getTimestamp() {
+    public Date getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(LocalDate timestamp) {
+    public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
     }
 }
